@@ -8,14 +8,14 @@ using UnityEngine;
 namespace TestTaskManerai.Head
 {
     /// <summary>
-    /// Основной контроллер.
-    /// Да, God-object. Осознаю это. Но действую по принципу "Время - деньги".
-    /// В данном случае, думаю, нет смысла сильно усложнять системы, тут объективно одного скрипта хватит.
-    /// Тем не менее, тут три составляющих системы, их вполне возможно (И даже нужно) разграничить:
-    /// - Реакция на базовый удар
-    /// - Апперкот
-    /// - Румянец
-    /// Они небольшие, потому пока можно в один скрипт.
+    /// РћСЃРЅРѕРІРЅРѕР№ РєРѕРЅС‚СЂРѕР»Р»РµСЂ.
+    /// Р”Р°, God-object. РћСЃРѕР·РЅР°СЋ СЌС‚Рѕ. РќРѕ РґРµР№СЃС‚РІСѓСЋ РїРѕ РїСЂРёРЅС†РёРїСѓ "Р’СЂРµРјСЏ - РґРµРЅСЊРіРё".
+    /// Р’ РґР°РЅРЅРѕРј СЃР»СѓС‡Р°Рµ, РґСѓРјР°СЋ, РЅРµС‚ СЃРјС‹СЃР»Р° СЃРёР»СЊРЅРѕ СѓСЃР»РѕР¶РЅСЏС‚СЊ СЃРёСЃС‚РµРјС‹, С‚СѓС‚ РѕР±СЉРµРєС‚РёРІРЅРѕ РѕРґРЅРѕРіРѕ СЃРєСЂРёРїС‚Р° С…РІР°С‚РёС‚.
+    /// РўРµРј РЅРµ РјРµРЅРµРµ, С‚СѓС‚ С‚СЂРё СЃРѕСЃС‚Р°РІР»СЏСЋС‰РёС… СЃРёСЃС‚РµРјС‹, РёС… РІРїРѕР»РЅРµ РІРѕР·РјРѕР¶РЅРѕ (Р РґР°Р¶Рµ РЅСѓР¶РЅРѕ) СЂР°Р·РіСЂР°РЅРёС‡РёС‚СЊ:
+    /// - Р РµР°РєС†РёСЏ РЅР° Р±Р°Р·РѕРІС‹Р№ СѓРґР°СЂ
+    /// - РђРїРїРµСЂРєРѕС‚
+    /// - Р СѓРјСЏРЅРµС†
+    /// РћРЅРё РЅРµР±РѕР»СЊС€РёРµ, РїРѕС‚РѕРјСѓ РїРѕРєР° РјРѕР¶РЅРѕ РІ РѕРґРёРЅ СЃРєСЂРёРїС‚.
     /// </summary>
     public class HeadController : MonoBehaviour
     {
@@ -27,10 +27,10 @@ namespace TestTaskManerai.Head
         #region Punch reaction
         [Header("Regular punch")]
         [SerializeField] PunchEffectController punchControllerEffectPrefab;
-        [Tooltip("Значение <b>скорости<\b> руки, при которой эффект случается")]
+        [Tooltip("Р—РЅР°С‡РµРЅРёРµ <b>СЃРєРѕСЂРѕСЃС‚Рё<\b> СЂСѓРєРё, РїСЂРё РєРѕС‚РѕСЂРѕР№ СЌС„С„РµРєС‚ СЃР»СѓС‡Р°РµС‚СЃСЏ")]
         [SerializeField] private float punchValue = 2;
         [SerializeField] private GameObject regularPunchSound;
-        [Tooltip("Значение <b>скорости<\b> руки, при которой эффект случается")]
+        [Tooltip("Р—РЅР°С‡РµРЅРёРµ <b>СЃРєРѕСЂРѕСЃС‚Рё<\b> СЂСѓРєРё, РїСЂРё РєРѕС‚РѕСЂРѕР№ СЌС„С„РµРєС‚ СЃР»СѓС‡Р°РµС‚СЃСЏ")]
         [SerializeField] private float strongPunchValue = 10;
         [SerializeField] private float strongPunchVelocityMultiplier = 1.5f;
         [SerializeField] private GameObject strongPunchSound;
@@ -119,7 +119,7 @@ namespace TestTaskManerai.Head
 
             if (angleUp < uppercutAllowedAngle)
             {
-                //TODO - Звук сильного удара, наложение эхо
+                //TODO - Р—РІСѓРє СЃРёР»СЊРЅРѕРіРѕ СѓРґР°СЂР°, РЅР°Р»РѕР¶РµРЅРёРµ СЌС…Рѕ
                 rb.velocity *= uppercutPowerMultiply;
                 spring.spring *= uppercutSpringSoftenValue;
                 hasBeenUppercut = true;
@@ -155,14 +155,14 @@ namespace TestTaskManerai.Head
         private void ActivateBlush()
         {
             isBlushed = true;
-            if (blushControl != null) //Перезапуск нужен, чтобы восстановить с начального состояния проверки
+            if (blushControl != null) //РџРµСЂРµР·Р°РїСѓСЃРє РЅСѓР¶РµРЅ, С‡С‚РѕР±С‹ РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ СЃ РЅР°С‡Р°Р»СЊРЅРѕРіРѕ СЃРѕСЃС‚РѕСЏРЅРёСЏ РїСЂРѕРІРµСЂРєРё
                 StopCoroutine(blushControl);
 
             blushControl = StartCoroutine(ControlBlushes());
         }
         private IEnumerator ControlBlushes()
         {
-            //Не буду заморачиваться со скалированием и скоростями, чтобы не усложнять
+            //РќРµ Р±СѓРґСѓ Р·Р°РјРѕСЂР°С‡РёРІР°С‚СЊСЃСЏ СЃРѕ СЃРєР°Р»РёСЂРѕРІР°РЅРёРµРј Рё СЃРєРѕСЂРѕСЃС‚СЏРјРё, С‡С‚РѕР±С‹ РЅРµ СѓСЃР»РѕР¶РЅСЏС‚СЊ
 
             while (isBlushed)
             {
@@ -185,7 +185,7 @@ namespace TestTaskManerai.Head
                 foreach (SpriteRenderer sr in blushes)
                 {
                     Color initial = sr.color;
-                    if (initial.a >= 0.05f) //Могут быть неравномерными (Потенциально)
+                    if (initial.a >= 0.05f) //РњРѕРіСѓС‚ Р±С‹С‚СЊ РЅРµСЂР°РІРЅРѕРјРµСЂРЅС‹РјРё (РџРѕС‚РµРЅС†РёР°Р»СЊРЅРѕ)
                         initial.a -= Time.deltaTime;
                     else
                         initial.a = 0;

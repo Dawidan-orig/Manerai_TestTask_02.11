@@ -101,3 +101,5 @@ InitTestScene*.unity*
 /Manerai Test Task 01.11.2025/Library/BurstCache/JIT/Hashes
 /Manerai Test Task 01.11.2025/Library/StateCache
 /Manerai Test Task 01.11.2025/Library
+*.cache
+*.cache

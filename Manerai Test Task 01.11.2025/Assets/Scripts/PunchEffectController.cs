@@ -16,7 +16,7 @@ namespace TestTaskManerai.Effects
                 effectSprite = GetComponent<SpriteRenderer>();
 
             if (effectSprite == null)
-                Debug.LogError("Не был найден SpriteRenderer!", transform);
+                Debug.LogError("РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ SpriteRenderer!", transform);
         }
 
         public void InitializeEffect(Color? basicColor = null, float targetLifetime = 2, float targetScale = 1)

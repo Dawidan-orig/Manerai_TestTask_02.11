@@ -18,7 +18,7 @@ namespace TestTaskManerai.Utilitary
 
             if (triggerUsed == null)
             {
-                Debug.Log("Не был найден коллайдер!", transform);
+                Debug.Log("РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ РєРѕР»Р»Р°Р№РґРµСЂ!", transform);
                 return;
             }
 
